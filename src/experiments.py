@@ -409,7 +409,7 @@ def main():
     jobs = [(e,m,g) for e in args.eps for m in args.m for g in args.grid]
     jobs = [job for i,job in enumerate(jobs) if i%args.shard_count==args.shard_index]
     start, failures = time.perf_counter(), []
-    entry = Path(__file__).resolve().parents[2]/"run_worst.py"
+    entry = Path(__file__).resolve().parents[1]/"run_worst.py"
     source_hasher = hashlib.sha256()
     for source in sorted(Path(__file__).parent.glob("*.py")):
         source_hasher.update(source.name.encode())
